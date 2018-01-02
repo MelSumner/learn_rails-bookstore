@@ -1,0 +1,15 @@
+$font: 'Roboto', sans-serif;
+
+// Screen Sizes - figure out if I should use ems instead
+$screen-md-min: 768px;
+$screen-lg-min: 992px;
+$screen-xl-min: 1200px;
+
+// Colors
+$black: #212121;
+$white: #fdfdfd;
+$purple: #5F4B8B;
+$purple-darker: darken($purple, 5%);
+$purple-darkest: darken($purple, 10%);
+$purple-lighter: lighten($purple, 5%);
+$purple-lightest: lighten($purple, 35%);

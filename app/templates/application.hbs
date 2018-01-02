@@ -1,5 +1,16 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+{{#a11y-landmark tagName="header"}}
+  <h1>My Dev Library</h1>
+{{/a11y-landmark}}
 
-{{outlet}}
+{{#a11y-landmark tagName="aside"}}
+
+{{/a11y-landmark}}
+
+{{#a11y-landmark tagName="main"}}
+  {{outlet}}
+{{/a11y-landmark}}
+
+{{#a11y-landmark tagName="footer"}}
+  <p><small>Yes! It <em>is</em> Ultra Violet, Pantone 2018 Color of the Year! You have a keen eye for detail.</small></p>
+  
+{{/a11y-landmark}}

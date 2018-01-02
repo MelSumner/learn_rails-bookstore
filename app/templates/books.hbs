@@ -1,0 +1,8 @@
+<section aria-labelledby="books_in_stock">
+  <h2 id="books_in_stock" class="section-heading">Books Currently In Stock</h2>
+  <ul class="list-items">
+    {{#each model as |book|}}
+      {{book-cover book=book}}
+    {{/each}}
+  </ul>
+</section>

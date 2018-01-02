@@ -7,6 +7,14 @@ module.exports = function(environment) {
     environment,
     rootURL: '/',
     locationType: 'auto',
+    googleFonts: [
+      'Roboto:400,500'
+    ],
+    // Set or update content security policies
+    contentSecurityPolicy: {
+      'font-src': "'self' fonts.gstatic.com",
+      'style-src': "'self' fonts.googleapis.com"
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
