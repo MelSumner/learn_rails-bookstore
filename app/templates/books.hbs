@@ -5,4 +5,7 @@
       {{book-cover book=book}}
     {{/each}}
   </ul>
+  {{#if showAll}}
+  <button {{action 'showAll'}} class="button button-dark">Show All Books</button>
+  {{/if}}
 </section>

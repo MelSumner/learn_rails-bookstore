@@ -1,5 +1,8 @@
 @import "normalize";
 @import "variables";
+@import "typography";
+@import "ember-modal-dialog/ember-modal-structure";
+@import "ember-modal-dialog/ember-modal-appearance";
 
 
 *, *:after {
@@ -12,7 +15,7 @@ body {
 	line-height: 1.5;
 
   >div{
-    &:first-of-type {
+    &:nth-of-type(2) {
       display: grid;
       grid-template-columns: 1fr;
       grid-template-rows: 75px auto 150px;
@@ -22,7 +25,7 @@ body {
                           "footer";
       @media screen and (min-width: $screen-md-min) {
         grid-template-columns: 1fr 4fr;
-        grid-template-rows: 75px auto 100px;
+        grid-template-rows: 75px minmax(82vh, max-content) 100px;
         grid-template-areas:"header header"
                             "aside main"
                             "footer footer";
@@ -43,13 +46,14 @@ body {
         }
         h1 {
           flex: 1;
-          font-size: 1.35em;
-          line-height: 1;
           margin: auto;
           min-width: 100%;
           text-align: center;
           @media screen and (min-width: $screen-md-min) {
-            font-size: 2em;
+            text-align: left;
+          }
+          a {
+            text-decoration: none;
           }
         }
       }
@@ -71,7 +75,7 @@ body {
         }
       }
       footer {
-        background-color: $purple;
+        background-color: $purple-darkest;
         color: white;
         grid-area: footer;
         max-width: 100%;
@@ -95,10 +99,16 @@ section {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  border: 1px solid red;
   .section-heading {
     border-bottom: 1px solid #efefef;
     flex: 1;
     min-width: 100%;
+  }
+  .button {
+    @media screen and (min-width:$screen-lg-min) {
+      margin-top: 4em;
+    }
   }
 }
 .list-items {
@@ -112,19 +122,132 @@ section {
   justify-content: flex-start;
   
   .list-item {
+    align-content: stretch;
     background-color: $purple-lightest;
     border: 4px solid $purple;
+    display: flex;
+    flex-flow: column wrap;
     flex: 1 1 1;
-    min-width: 48%;
+    justify-content: stretch;
     margin: 0.25em;
-
+    min-width: 48%;
+    padding: 0.5em;
     @media screen and (min-width: $screen-md-min) {
+      align-items: stretch;
+      flex-flow: row wrap;
+      justify-content: center;
       margin: 1em;
       max-width: 200px;
       min-height: 250px;
       min-width: 200px;
+      text-align: center;
+      .span-dirty {
+        min-width: 100%;
+        align-self: flex-start;
+      }
+      .button {
+        align-self: flex-end;
+      }
     }
-    padding: 0.5em;
-    text-align: center;    
   }
+}
+.button {
+	border-radius: 3px;
+	font-family: $font;
+	font-size: 1.2em;
+	font-weight: 500;
+	height: 54px;
+	letter-spacing: 1px;
+	margin: 9px 0.2em; //idk if forever.
+	min-width: 96px; //this way the button will fit whatever the contents really are
+	padding: 0 24px;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: all 0.4s ease 0s;
+	&.button-block {
+		box-sizing: border-box;
+		width: 100%;
+		max-width: 100%;
+		margin: 9px auto;
+	}
+	&.button-dense {
+		display: inline-block;
+	  font-size: 14px;
+	  height: 30px;
+	  line-height: 26px;
+	  vertical-align: middle;
+	}
+	&:hover,
+	:focus {
+		cursor: pointer;
+	}
+	&.button-light {
+		background-color: $white;
+		border: 3px solid $purple;
+		color: $purple-darker;
+		&:hover {
+			border-color: $purple-darkest;
+			color: $purple-darkest;
+		}
+	}
+	&.button-dark {
+		background-color: $purple-darker;
+		border: 3px solid transparent;
+		color: $white;
+		font-weight: 400;
+		&:hover,
+		:focus {
+			background-color: $purple-darkest;
+			color: $white;
+			cursor: pointer;
+		}
+	}
+	&.default {
+		border-color: $gray-lighter !important;
+		color: $gray !important;
+		background-color: $gray-lightest !important;
+		&:hover, :focus {
+			cursor: pointer;
+			border-color: $gray !important;
+			color: $gray-darkest !important;
+			background-color: $gray-lightest !important;
+		}
+	}
+	&.disabled {
+		border-color: $gray-lighter !important;
+		color: $gray-lighter !important;
+		background-color: $gray-lightest;
+		&:hover,
+		:focus {
+			cursor: not-allowed;
+			border-color: $gray-lighter;
+			color: $gray-lighter;
+			background-color: $gray-lightest;
+		}
+	}
+	&.button-link {
+		border-color: transparent;
+		background-color: transparent;
+		color: $purple-darker;
+		margin: 9px 12px;
+		padding: 0 12px;
+	}
+}
+.button-icon {
+	display: inline-flex;
+	justify-content: center;
+	align-content: stretch;
+	height: 24px;
+	width: 24px;
+	border: 2px solid $purple-darker;
+	background-color: $white;
+	color: $purple;
+	margin: auto 5px;
+	border-radius: 2px;
+	transition: all 0.4s ease 0s;
+	&:hover,:focus {
+		background-color: $purple-darkest;
+		color: $white;
+		cursor: pointer;
+	}
 }

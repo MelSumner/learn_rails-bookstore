@@ -1,0 +1,44 @@
+@import "variables";
+
+h1, h2, h3, h4 {
+  line-height: 1;
+  min-width: 100%;
+}
+h1 {
+  font-size: 2em;
+  @media screen and (min-width: $screen-md-min) {
+    font-size:2.6179em;
+  }
+}
+h2 {
+  font-size: 1.5874em;
+  @media screen and (min-width: $screen-md-min) {
+    font-size:2.0581em;
+  }
+}
+h3 {
+  font-size: 1.2599em;
+  @media screen and (min-width: $screen-md-min) {
+    font-size:1.618em;
+  }
+}
+h4 {
+  font-size: 1.125em;
+  @media screen and (min-width: $screen-md-min) {
+    font-size:1.272em;
+  }
+}
+p {
+  padding: 0.25em;
+  @media screen and (min-width: $screen-md-min) {
+    padding: 0;
+  }
+}
+a {
+  color: $purple;
+  transition: all 0.4s ease 0s;
+  &:hover, :focus {
+    cursor:pointer;
+    color: $purple-darker;
+  }
+}

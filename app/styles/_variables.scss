@@ -7,9 +7,15 @@ $screen-xl-min: 1200px;
 
 // Colors
 $black: #212121;
-$white: #fdfdfd;
+$gray: #454545;
 $purple: #5F4B8B;
+$white: #fdfdfd;
+
+$gray-darker: darken($gray, 10%);
+$gray-darkest: darken($gray, 15%);
+$gray-lighter: #999999;
+$gray-lightest: #eaeaea;
 $purple-darker: darken($purple, 5%);
 $purple-darkest: darken($purple, 10%);
-$purple-lighter: lighten($purple, 5%);
-$purple-lightest: lighten($purple, 35%);
+$purple-lighter: lighten($purple, 30%);
+$purple-lightest: lighten($purple, 60%);

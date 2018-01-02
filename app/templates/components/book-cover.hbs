@@ -1,4 +1,25 @@
 
-  <b>{{book.title}}</b>
-  <br/>
-  <i>by</i> {{book.author.name}}
+  {{!-- I am not happy about these spans, but I want to keep moving forward so they will have to stay for now. --}}
+  <span class="span-dirty">
+    <b>{{book.title}}</b>
+  </span>
+  <span class="span-dirty">
+    <i>by</i>   {{link-to book.author.name 'author' book.author.id class="author" }}
+  </span>
+  <button {{action "open"}} class="button button-dark button-dense" aria-label="buy {{book.title}} by {{book.author.name}}">Buy This Book</button>
+
+{{#if isShowingModal}}
+  {{#modal-dialog close="close" clickOutsideToClose=true}}
+    <div class="modal">
+      <h3>Purchase confirmation</h3>
+      
+      <p>You are purchasing <strong>{{book.title}}</strong> by {{book.author.name}}. After you complete your purchase, you will receive the item in the mail.</p>
+      
+      {{!-- ok the close action is just because this is only a demo and I'm not really selling anything.  --}}
+      <p class="text-center">
+        <button {{action "close"}} class="button button-dark button-dense">Purchase for ${{book.price}}</button>
+        <button {{action "close"}} class="button button-dark button-dense default">Cancel</button>
+      </p>
+    </div>
+    {{/modal-dialog}}
+{{/if}}
