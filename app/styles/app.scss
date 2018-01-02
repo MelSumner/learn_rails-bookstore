@@ -19,14 +19,14 @@ body {
     &:nth-of-type(2) {
       display: grid;
       grid-template-columns: 1fr;
-      grid-template-rows: 75px auto 150px;
+      grid-template-rows: 75px auto 50px;
       grid-template-areas: "header"
                           "main" 
                           "aside"
                           "footer";
       @media screen and (min-width: $screen-md-min) {
         grid-template-columns: 1fr 4fr;
-        grid-template-rows: 150px minmax(82vh, max-content) 100px;
+        grid-template-rows: 150px minmax(82vh, max-content) 75px;
         grid-template-areas:"header header"
                             "aside main"
                             "footer footer";
